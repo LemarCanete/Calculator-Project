@@ -11,12 +11,24 @@ class Calculator{
         this.operation = undefined;
     }
 
+    delete(){
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    }
+
     appendNumber(number){
         this.currentOperand = this.currentOperand.toString() + number.toString();
     }
 
+    chooseOperation(operation){
+        
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
+    }
+
     updateDisplay(){
         this.currentOperandText.innerText = this.currentOperand;
+        this.previousOperandText.innerText = this.previousOperand
     }
 }
 
@@ -37,3 +49,19 @@ numberButtons.forEach(button=>{
     })
 })
 
+allClearButton.addEventListener("click", ()=>{
+    calculator.clear();
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener("click", ()=>{
+    calculator.delete();
+    calculator.updateDisplay();
+})
+
+operationButtons.forEach(button=>{
+    button.addEventListener("click", ()=>{
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay();
+    })
+})
