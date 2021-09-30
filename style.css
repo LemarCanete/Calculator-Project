@@ -68,7 +68,7 @@ body{
     grid-column: span 2;
 }
 .output{
-    grid-column: span 4;
+    grid-column: 1 / -1;
     background-color: rgba(0, 0, 0, .5);
     display: flex;
     flex-direction: column;
@@ -79,8 +79,17 @@ body{
     padding: 10px;
     word-break: break-all;
     border: .5px solid #fff;
-    font-size: 1.5rem;
     color: rgba(225, 225, 255, 0.5);
+}
+
+.previous-operand{
+    color: rgba(225, 225, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.current-operand{
+    color: #fff;
+    font-size: 2.5rem;
 }
 
 
